@@ -1,4 +1,5 @@
-import Navigation from "../components/Navigation"
+import Navigation from "./shared/Navigation"
+import Footer from "./shared/Footer"
 import Head from 'next/head'
 import "bootstrap-css-only/css/bootstrap.min.css"
 
@@ -13,6 +14,7 @@ export default ({ children, title }) => (
         <div className="container">
             <h1 className="display-1 text-center my-4">{title}</h1>
             {children}
+            <Footer></Footer>
         </div>
     </>
 )
