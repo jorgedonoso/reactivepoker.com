@@ -1,11 +1,11 @@
-const Deck = ({ hand, clickEvent, highlight }) => {
+const Deck = ({ hand, clickEvent, selectedCards }) => {
 
     return <div className="row mb-4">
         {
             hand.map((card) => {
                 let extra = "pt-4";
 
-                if (highlight && highlight.indexOf(card) > -1) {
+                if (selectedCards && selectedCards.indexOf(card) > -1) {
                     extra = "pb-4";
                 }
 

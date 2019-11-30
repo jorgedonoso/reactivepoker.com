@@ -2,25 +2,15 @@ import React, { useState, useEffect } from 'react'
 import Page from "../layouts/Page"
 import Deck from "../components/Deck"
 import useDeck from "../src/hooks/useDeck"
+import useSelectCard from "../src/hooks/useSelectCard"
 
 export default () => {
 
-  let deck = useDeck(4);
-
-  const [highlight, setHighlight] = useState([]);
-
-  const handleHoldCard = (card) => {
-    // Toggle clicked card.
-    if (highlight.indexOf(card) > -1) {
-      const filteredItems = highlight.filter(item => item !== card);
-      setHighlight(filteredItems);
-    } else {
-      setHighlight([...highlight, card]);
-    }
-  }
+  let deck = useDeck(5);
+  let { selectedCards, selectCard } = useSelectCard();
 
   return <Page title="Jacks or Better">
-    <Deck hand={deck} clickEvent={handleHoldCard} highlight={highlight}></Deck>
+    <Deck hand={deck} clickEvent={selectCard} selectedCards={selectedCards}></Deck>
   </Page>
 
-} 
+}
