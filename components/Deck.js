@@ -1,20 +1,20 @@
 const Deck = ({ hand, clickEvent, highlight }) => {
 
-    return <div className="row mb-3">
+    return <div className="row mb-4">
         {
             hand.map((card) => {
-                let extra;
+                let extra = "pt-4";
 
                 if (highlight && highlight.indexOf(card) > -1) {
-                    extra = " bg-success";
+                    extra = "pb-4";
                 }
 
                 // imageName is always unique.
-                return <div
-                    className={"col rounded text-center " + extra}
-                    key={card.imageName}
-                    onClick={() => clickEvent && clickEvent(card)}>
-                    <img className="img-fluid" src={"/images/" + card.imageName + ".png"} />
+                return <div className="col p-0 text-center"
+                    key={card.imageName}>
+                    <img className={"img-fluid " + extra}
+                        src={"/images/" + card.imageName + ".png"}
+                        onClick={() => clickEvent && clickEvent(card)} />
                 </div>
             })
         }
