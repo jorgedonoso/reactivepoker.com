@@ -12,9 +12,7 @@ export default ({ children, title }) => (
         <Navigation></Navigation>
         <div className="container">
             <h1 className="display-1 text-center my-4">{title}</h1>
-            <div className="row">
-                {children}
-            </div>
+            {children}
         </div>
     </>
 )
