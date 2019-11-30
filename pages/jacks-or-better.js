@@ -4,8 +4,10 @@ import DeckModel from "../src/models/Deck"
 import Deck from "../components/Deck"
 
 export default () => {
-  const howManyCards = 5,
-    [deck, setDeck] = useState([]);
+
+  const howManyCards = 5;
+  const [deck, setDeck] = useState([]);
+  const [highlight, setHighlight] = useState([]);
 
   useEffect(() => {
     startNewGame();
@@ -16,12 +18,18 @@ export default () => {
     setDeck(newHand);
   }
 
+  const handleHoldCard = (card) => {
+    // Toggle clicked card.
+    if (highlight.indexOf(card) > -1) {
+      const filteredItems = highlight.filter(item => item !== card);
+      setHighlight(filteredItems);
+    } else {
+      setHighlight([...highlight, card]);
+    }
+  }
+
   return <Page title="Jacks or Better">
-    <div className="col-12">
-      <div className="row">
-        <Deck hand={deck}></Deck>
-      </div>
-    </div>
+    <Deck hand={deck} clickEvent={handleHoldCard} highlight={highlight}></Deck>
   </Page>
 
 } 
