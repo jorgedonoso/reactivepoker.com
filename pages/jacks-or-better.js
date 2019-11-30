@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Page from "../layouts/Page"
-import DeckModel from "../src/models/Deck"
 import Deck from "../components/Deck"
+import useDeck from "../src/hooks/useDeck"
 
 export default () => {
 
-  const howManyCards = 5;
-  const [deck, setDeck] = useState([]);
+  let deck = useDeck(4);
+
   const [highlight, setHighlight] = useState([]);
-
-  useEffect(() => {
-    startNewGame();
-  }, []);
-
-  const startNewGame = () => {
-    var newHand = new DeckModel().getNewHand(howManyCards);
-    setDeck(newHand);
-  }
 
   const handleHoldCard = (card) => {
     // Toggle clicked card.
