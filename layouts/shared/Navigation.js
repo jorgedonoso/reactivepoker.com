@@ -1,7 +1,6 @@
 import Link from "next/link"
 
 const links = [
-    { label: "Home", path: "/" },
     { label: "Poker Rules", path: "/poker-rules" },
     { label: "Jacks or Better", path: "/jacks-or-better" },
     { label: "Card Counting", path: "/card-counting" },
@@ -10,7 +9,7 @@ const links = [
 
 const Navigation = () =>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-        <Link href="/"><a className="navbar-brand">RP</a></Link>
+        <Link href="/"><a className="navbar-brand">Reactive Poker</a></Link>
         <div className="navbar-nav">
             {links.map(
                 (link, $key) =>
