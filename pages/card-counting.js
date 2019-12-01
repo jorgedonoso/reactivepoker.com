@@ -5,10 +5,10 @@ import useDeck from "../src/hooks/useDeck"
 
 export default () => {
 
-  let deck = useDeck(1);
+  let { hand } = useDeck(1);
 
   return <Page title="Card Counting">
-    <Deck hand={deck}></Deck>
+    <Deck hand={hand}></Deck>
   </Page>
 
 }

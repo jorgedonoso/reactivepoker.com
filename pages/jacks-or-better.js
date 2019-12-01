@@ -6,11 +6,11 @@ import useSelectCard from "../src/hooks/useSelectCard"
 
 export default () => {
 
-  let deck = useDeck(5);
+  let { hand } = useDeck(5);
   let { selectedCards, selectCard } = useSelectCard();
 
   return <Page title="Jacks or Better">
-    <Deck hand={deck} clickEvent={selectCard} selectedCards={selectedCards}></Deck>
+    <Deck hand={hand} clickEvent={selectCard} selectedCards={selectedCards}></Deck>
   </Page>
 
 }
