@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 import DeckModel from "../models/Deck"
 
-export default (howManyCards) => {
+export default (numberOfCards) => {
 
-    const [deck, setDeck] = useState([]);
+    const [hand, setDeck] = useState([]);
 
     useEffect(() => {
-        startNewGame();
+        getNewHand();
     }, []);
 
-    const startNewGame = () => {
-        var newHand = new DeckModel().getNewHand(howManyCards);
+    const getNewHand = () => {
+        var newHand = new DeckModel().getNewHand(numberOfCards);
         setDeck(newHand);
     }
 
-    return deck;
+    return { hand, getNewHand };
 }
