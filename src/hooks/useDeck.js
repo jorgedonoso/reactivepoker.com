@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import DeckModel from "../models/Deck"
+import DeckModel from "../models/DeckModel"
 
 export default (numberOfCards) => {
 

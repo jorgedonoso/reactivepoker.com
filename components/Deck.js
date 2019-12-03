@@ -12,8 +12,7 @@ const Deck = ({ hand, clickEvent, selectedCards }) => {
                     holdMessage = "font-weight-bold lead";
                 }
 
-                // "imageName" is always unique.
-                return <div className="col p-0 text-center" key={card.imageName}>
+                return <div className="col p-0 text-center" key={card.key}>
                     <img className={"img-fluid " + extra}
                         src={"/images/" + card.imageName + ".png"}
                         onClick={() => clickEvent && clickEvent(card)} />

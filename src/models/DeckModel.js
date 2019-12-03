@@ -1,6 +1,6 @@
-import Card from "./Card"
+import CardModel from "./CardModel"
 
-class Deck {
+class DeckModel {
 
     allCards = [];
 
@@ -11,20 +11,19 @@ class Deck {
             let currentSuit = _suits[suit];
 
             //Ace
-            this.allCards.push(new Card("A", currentSuit, "A" + currentSuit));
+            this.allCards.push(new CardModel("A", currentSuit, "A" + currentSuit));
 
             //Low cards
             for (let i = 2; i < 10; i++) {
-                this.allCards.push(new Card(i, currentSuit, i + currentSuit));
+                this.allCards.push(new CardModel(i, currentSuit, i + currentSuit));
             }
 
             //High cards
-            this.allCards.push(new Card("T", currentSuit, "T" + currentSuit));
-            this.allCards.push(new Card("J", currentSuit, "J" + currentSuit));
-            this.allCards.push(new Card("Q", currentSuit, "Q" + currentSuit));
-            this.allCards.push(new Card("K", currentSuit, "K" + currentSuit));
+            this.allCards.push(new CardModel("T", currentSuit, "T" + currentSuit));
+            this.allCards.push(new CardModel("J", currentSuit, "J" + currentSuit));
+            this.allCards.push(new CardModel("Q", currentSuit, "Q" + currentSuit));
+            this.allCards.push(new CardModel("K", currentSuit, "K" + currentSuit));
         }
-
     }
 
     getNewHand(howManyCards) {
@@ -47,6 +46,12 @@ class Deck {
         return array;
     }
 
+    createCardBack(key) {
+        let cardBack = new CardModel("0", "-", "back");
+        cardBack.key = "back_" + key;
+
+        return cardBack;
+    }
 }
 
-export default Deck;
+export default DeckModel;

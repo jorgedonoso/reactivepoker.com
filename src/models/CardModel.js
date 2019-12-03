@@ -1,4 +1,4 @@
-class Card {
+class CardModel {
     constructor(value, suit, imageName) {
         this.value = value;
         this.suit = suit;
@@ -7,4 +7,4 @@ class Card {
     }
 }
 
-export default Card;
+export default CardModel;
