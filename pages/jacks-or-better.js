@@ -14,35 +14,23 @@ export default () => {
   let [playableHand, setPlayableHand] = useState([]);
 
   useEffect(function () {
-    // Must wait until Hand is initialized.
     if (hand.length) {
       setPlayableHand(hand.slice(0, 5));
     }
   }, [hand]);
-
 
   const handleDraw = () => {
 
     // Step 1: Pluck selected cards.
     let cardsToKeep = selectedCards.map(card => card.key);
 
-    // Step 2: Replace discarded cards with "Back of Card" image.
-    let mergedHand = playableHand.map((card, iteration) => {
-      return (cardsToKeep.indexOf(card.key) > -1 ? card : new DeckModel().createCardBack(iteration));
-    });
-
-    setPlayableHand(mergedHand);
-
-    // Step 3: Generate final hand.
-    let finalHand = mergedHand.map((card, iteration) => {
-      return (card.value === "0" ? hand[iteration + 5] : card);
+    // Step 2: Replace discarded cards with new cards.
+    let finalHand = playableHand.map((card, iteration) => {
+      return (cardsToKeep.indexOf(card.key) > -1 ? card : hand[iteration + 5]);
     });
 
     solveHand(finalHand);
-
-    setTimeout(function () {
-      setPlayableHand(finalHand);
-    }, 100);
+    setPlayableHand(finalHand);
   }
 
   const startNewGame = () => {

@@ -13,7 +13,7 @@ const Deck = ({ hand, clickEvent, selectedCards }) => {
                 }
 
                 return <div className="col p-0 text-center" key={card.key}>
-                    <img className={"img-fluid " + extra}
+                    <img className={"img-fluid animated fadeIn " + extra}
                         src={"/images/" + card.imageName + ".png"}
                         onClick={() => clickEvent && clickEvent(card)} />
                     <p className={holdMessage}>Hold</p>
