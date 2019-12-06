@@ -12,10 +12,12 @@ export default () => {
   let { result, solveHand, clearResult } = useSolver("jacksbetter");
   let { selectedCards, selectCard } = useSelectCard();
   let [playableHand, setPlayableHand] = useState([]);
+  let [isInProgress, setIsInProgress] = useState(false);
 
   useEffect(function () {
     if (hand.length) {
       setPlayableHand(hand.slice(0, 5));
+      setIsInProgress(true);
     }
   }, [hand]);
 
@@ -31,6 +33,7 @@ export default () => {
 
     solveHand(finalHand);
     setPlayableHand(finalHand);
+    setIsInProgress(false);
   }
 
   const startNewGame = () => {
@@ -38,8 +41,12 @@ export default () => {
     clearResult();
   }
 
+  const clickEventDecider = () => {
+    return isInProgress ? selectCard : null;
+  }
+
   return <Page title="Jacks or Better">
-    <Deck hand={playableHand} clickEvent={selectCard} selectedCards={selectedCards}></Deck>
+    <Deck hand={playableHand} clickEvent={clickEventDecider()} selectedCards={selectedCards}></Deck>
     <div className="row text-center">
       <div className="col">
         {result ? null : <button className="btn btn-primary" onClick={handleDraw}>Draw</button>}
@@ -47,7 +54,5 @@ export default () => {
         <p>{result}</p>
       </div>
     </div>
-
   </Page>
-
 }
