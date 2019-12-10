@@ -28,9 +28,13 @@ export default () => {
 
     const getOneMore = () => setCount(cur => cur + 1);
 
+    const handleRevealAnswer = () => {
+        setGameState(CardCountingStates.REVEAL_ANSWER);
+    }
+
     return <Page title="Card Counting">
         <p className="text-center">Keep track of the count. High cards are worth -1, low cards +1, and [7, 8, 9] are worth 0.</p>
-        <p className="text-center"><CardCountingWorkflow gameState={gameState} startGame={startGame} getOneMore={getOneMore}></CardCountingWorkflow></p>
+        <p className="text-center"><CardCountingWorkflow gameState={gameState} startGame={startGame} getOneMore={getOneMore} handleRevealAnswer={handleRevealAnswer}></CardCountingWorkflow></p>
         <p className="text-center">{visibleCard && gameState == CardCountingStates.IN_PROGRESS ? <Card card={visibleCard} /> : null}</p>
     </Page>
 }
