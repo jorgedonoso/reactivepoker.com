@@ -17,5 +17,13 @@ export default ({ children, title }) => (
             {children}
             <Footer></Footer>
         </div>
+        <style jsx global>{`
+            body{ 
+                background-color: #fff!important;
+                background-image: -webkit-linear-gradient(30deg,#fff 30%,#ccc 70%);
+                height: 100vh;
+                background-attachment:fixed;
+            }`}
+        </style>
     </>
 )
