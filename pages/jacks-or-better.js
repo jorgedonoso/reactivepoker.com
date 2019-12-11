@@ -4,6 +4,7 @@ import Deck from "../components/Deck"
 import useDeck from "../src/hooks/useDeck"
 import useSelectCard from "../src/hooks/useSelectCard"
 import useSolver from "../src/hooks/useSolver"
+import Instructions from "../components/Instructions"
 
 export default () => {
 
@@ -46,7 +47,7 @@ export default () => {
   }
 
   return <Page title="Jacks or Better">
-    <Deck hand={hand}></Deck>
+    <Instructions>Select some cards to keep and draw the remaining ones</Instructions>
     <Deck hand={playableHand} clickEvent={clickEventDecider()} selectedCards={selectedCards}></Deck>
     <div className="row text-center">
       <div className="col">

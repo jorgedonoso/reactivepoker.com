@@ -5,6 +5,7 @@ import Rules from "../components/PokerRulesPanel"
 import useDeck from "../src/hooks/useDeck"
 import useSolver from "../src/hooks/useSolver"
 import { getPokerRules } from "../src/helpers"
+import Instructions from "../components/Instructions"
 
 export default () => {
 
@@ -32,6 +33,7 @@ export default () => {
   }
 
   return <Page title="Poker Rules">
+    <Instructions>Select the rule that describes the hand</Instructions>
     <Deck hand={hand}></Deck>
     <Rules onAnswer={onAnswer} initRules={rules}></Rules>
   </Page>

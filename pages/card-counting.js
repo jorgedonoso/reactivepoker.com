@@ -4,6 +4,7 @@ import Card from "../components/Card"
 import useDeck from "../src/hooks/useDeck"
 import CardCountingStates from "../src/enums/CardCountingStates.ts"
 import CardCountingWorkflow from "../components/CardCountingWorkflow"
+import Instructions from "../components/Instructions"
 
 export default () => {
 
@@ -38,7 +39,7 @@ export default () => {
     }
 
     return <Page title="Card Counting">
-        <p className="text-center">Keep track of the count. High cards are worth -1, low cards +1, and [7, 8, 9] are worth 0.</p>
+        <Instructions>Keep track of the count. High cards are worth -1, low cards +1, and [7, 8, 9] are worth 0</Instructions>
         <p className="text-center"><CardCountingWorkflow gameState={gameState} startGame={startGame} getOneMore={getOneMore} handleRevealAnswer={handleRevealAnswer} handleStartOver={handleStartOver}></CardCountingWorkflow></p>
         <p className="text-center">{visibleCard && gameState == CardCountingStates.IN_PROGRESS ? <Card card={visibleCard} /> : null}</p>
     </Page>
