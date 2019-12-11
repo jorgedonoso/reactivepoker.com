@@ -1,6 +1,6 @@
 import CardCountingStates from "../src/enums/CardCountingStates.ts"
 
-const CardCountingWorkflow = ({ gameState, startGame, getOneMore, handleRevealAnswer }) => {
+const CardCountingWorkflow = ({ gameState, startGame, getOneMore, handleRevealAnswer, handleStartOver }) => {
     switch (gameState) {
         case CardCountingStates.ASK_COUNT:
             return <>
@@ -8,7 +8,10 @@ const CardCountingWorkflow = ({ gameState, startGame, getOneMore, handleRevealAn
                 <button className="btn btn-warning" onClick={handleRevealAnswer}>Click here to reveal...</button>
             </>;
         case CardCountingStates.REVEAL_ANSWER:
-            return <b>The answer goes here!</b>;
+            return <>
+                <b className="d-block">The answer goes here!</b>
+                <button className="btn btn-primary" onClick={handleStartOver}>Start Over!</button>
+            </>;
         case CardCountingStates.IN_PROGRESS:
             return <button className="btn btn-secondary" onClick={getOneMore}>Draw one more card...</button>;
         default:
