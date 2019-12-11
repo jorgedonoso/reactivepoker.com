@@ -4,8 +4,11 @@ export default () => {
 
     const [selectedCards, toggleCard] = useState([]);
 
-    const selectCard = (card) => {
+    const clearSelectedCards = () => {
+        toggleCard([]);
+    }
 
+    const selectCard = (card) => {
         // Toggle card from array.
         if (selectedCards.indexOf(card) > -1) {
             const filteredItems = selectedCards.filter(item => item !== card);
@@ -13,8 +16,7 @@ export default () => {
         } else {
             toggleCard([...selectedCards, card]);
         }
-
     }
 
-    return { selectedCards, selectCard };
+    return { selectedCards, selectCard, clearSelectedCards };
 }

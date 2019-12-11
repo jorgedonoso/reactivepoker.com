@@ -4,13 +4,12 @@ import Deck from "../components/Deck"
 import useDeck from "../src/hooks/useDeck"
 import useSelectCard from "../src/hooks/useSelectCard"
 import useSolver from "../src/hooks/useSolver"
-import DeckModel from "../src/models/DeckModel"
 
 export default () => {
 
   let { hand, getNewHand } = useDeck(10);
   let { result, solveHand, clearResult } = useSolver("jacksbetter");
-  let { selectedCards, selectCard } = useSelectCard();
+  let { selectedCards, selectCard, clearSelectedCards } = useSelectCard();
   let [playableHand, setPlayableHand] = useState([]);
   let [isInProgress, setIsInProgress] = useState(false);
 
@@ -31,12 +30,13 @@ export default () => {
       return (cardsToKeep.indexOf(card.key) > -1 ? card : hand[iteration + 5]);
     });
 
-    solveHand(finalHand);
-    setPlayableHand(finalHand);
-    setIsInProgress(false);
+    solveHand(finalHand); // Find answer.
+    setPlayableHand(finalHand); // Update Cards UI.
+    setIsInProgress(false); // Update game workflow.
   }
 
   const startNewGame = () => {
+    clearSelectedCards();
     getNewHand();
     clearResult();
   }
@@ -46,6 +46,7 @@ export default () => {
   }
 
   return <Page title="Jacks or Better">
+    <Deck hand={hand}></Deck>
     <Deck hand={playableHand} clickEvent={clickEventDecider()} selectedCards={selectedCards}></Deck>
     <div className="row text-center">
       <div className="col">
