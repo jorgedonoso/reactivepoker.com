@@ -47,13 +47,15 @@ export default () => {
   }
 
   return <Page title="Jacks or Better">
-    <Instructions>Select some cards to keep and draw the remaining ones</Instructions>
-    <Deck hand={playableHand} clickEvent={clickEventDecider()} selectedCards={selectedCards}></Deck>
-    <div className="row text-center">
+    <div className="row">
       <div className="col">
-        {result ? null : <button className="btn btn-primary" onClick={handleDraw}>Draw</button>}
-        {result ? <button className="btn btn-primary" onClick={startNewGame}>Start New Game</button> : null}
-        <p>{result}</p>
+        <Instructions>Select some cards to keep and draw the remaining ones</Instructions>
+        <Deck hand={playableHand} clickEvent={clickEventDecider()} selectedCards={selectedCards}></Deck>
+        <p className="text-center">
+          {result ? null : <button className="btn btn-primary" onClick={handleDraw}>Draw</button>}
+          {result ? <button className="btn btn-primary" onClick={startNewGame}>Start New Game</button> : null}
+        </p>
+        <p className="text-center">{result}</p>
       </div>
     </div>
   </Page>

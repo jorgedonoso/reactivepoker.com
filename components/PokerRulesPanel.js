@@ -18,7 +18,7 @@ const PokerRulesPanel = ({ onAnswer, initRules }) => {
 
             let disabled = rule.error ? "btn-secondary" : "btn-primary";
 
-            return <div className="col-6 p-1" key={rule.id}>
+            return <div className="col-6 pb-3" key={rule.id}>
                 <button
                     className={"btn btn-block " + disabled}
                     onClick={() => handleClick(rule)}

@@ -2,7 +2,7 @@ import Card from "./Card"
 
 const Deck = ({ hand, clickEvent, selectedCards }) => {
 
-    return <div className="row mb-4">
+    return <div className="row mb-4 no-gutters">
         {
             hand.map((card) => {
 
@@ -14,7 +14,7 @@ const Deck = ({ hand, clickEvent, selectedCards }) => {
                     holdMessage = "font-weight-bold lead";
                 }
 
-                return <div className="col p-0 text-center" key={card.key}>
+                return <div className="col text-center" key={card.key}>
                     <Card card={card} extraClasses={extraClasses} clickEvent={clickEvent} />
                     <p className={holdMessage}>Hold</p>
                 </div>

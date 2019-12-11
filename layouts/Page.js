@@ -23,7 +23,11 @@ export default ({ children, title }) => (
                 background-image: -webkit-linear-gradient(30deg,#fff 30%,#ccc 70%);
                 height: 100vh;
                 background-attachment:fixed;
-            }`}
+            }
+            .bg-dark{
+                background-color: #000!important;
+            }
+            `}
         </style>
     </>
 )
