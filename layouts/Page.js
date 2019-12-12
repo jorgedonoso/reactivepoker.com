@@ -3,6 +3,7 @@ import Footer from "./shared/Footer"
 import Head from 'next/head'
 import "bootstrap-css-only/css/bootstrap.min.css"
 import "animate.css/animate.min.css"
+import Title from "../components/Title"
 
 export default ({ children, title }) => (
     <>
@@ -13,7 +14,7 @@ export default ({ children, title }) => (
         </Head>
         <Navigation></Navigation>
         <div className="container animated fadeIn">
-            <h1 className="display-1 text-center my-4">{title}</h1>
+            <Title>{title}</Title>
             {children}
             <Footer></Footer>
         </div>
