@@ -1,4 +1,5 @@
 import Navigation from "./shared/Navigation"
+import MobileNavigation from "./shared/MobileNavigation"
 import Footer from "./shared/Footer"
 import Head from 'next/head'
 import "bootstrap-css-only/css/bootstrap.min.css"
@@ -17,6 +18,7 @@ export default ({ children, title }) => (
             <Title>{title}</Title>
             {children}
             <Footer></Footer>
+            <MobileNavigation></MobileNavigation>
         </div>
         <style jsx global>{`
             body{ 
