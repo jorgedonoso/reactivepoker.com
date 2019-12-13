@@ -18,8 +18,8 @@ export default ({ children, title }) => (
             <Title>{title}</Title>
             {children}
             <Footer></Footer>
-            <MobileNavigation></MobileNavigation>
         </div>
+        <MobileNavigation></MobileNavigation>
         <style jsx global>{`
             body{ 
                 background-color: #fff!important;

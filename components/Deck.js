@@ -2,11 +2,11 @@ import Card from "./Card"
 
 const Deck = ({ hand, clickEvent, selectedCards }) => {
 
-    return <div className="row mb-4 no-gutters">
+    return <div className="row my-sm-0 my-md-4 no-gutters">
         {
             hand.map((card) => {
 
-                let extraClasses = "pt-4"; // To create "pull up" effect.
+                let extraClasses = "pt-2"; // To create "pull up" effect.
                 let holdMessage = "invisible"; // To toggle "Hold" text.
 
                 if (selectedCards && selectedCards.indexOf(card) > -1) {
