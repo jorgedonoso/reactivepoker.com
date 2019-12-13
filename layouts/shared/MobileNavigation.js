@@ -19,7 +19,7 @@ const Navigation = ({ router }) => {
                         if (router.pathname == link.path) {
                             isActive = "text-danger";
                         }
-                        return <Link key={$key} href={link.path}>
+                        return <Link prefetch={false} key={$key} href={link.path}>
                             <a className={"py-3 " + isActive} style={styles}>
                                 <FontAwesomeIcon icon={link.icon} height={24} className="d-block mx-auto" />
                                 {link.label}

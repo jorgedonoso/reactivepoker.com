@@ -16,7 +16,7 @@ const Navigation = ({ router }) => {
                         if (router.pathname == link.path) {
                             isActive = "active";
                         }
-                        return <Link key={$key} href={link.path}><a className={"nav-item nav-link " + isActive}>{link.label}</a></Link>
+                        return <Link prefetch={false} key={$key} href={link.path}><a className={"nav-item nav-link " + isActive}>{link.label}</a></Link>
                     }
                 )}
             </div>
