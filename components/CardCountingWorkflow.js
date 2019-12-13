@@ -1,21 +1,18 @@
 import CardCountingStates from "../src/enums/CardCountingStates.ts"
+import ButtonTypes from "../src/enums/ButtonTypes.ts"
+import Button from "../components/Button"
 
 const CardCountingWorkflow = ({ gameState, startGame, getOneMore, handleRevealAnswer, handleStartOver }) => {
+
     switch (gameState) {
         case CardCountingStates.ASK_COUNT:
-            return <>
-                <b className="d-block">What's the count?</b>
-                <button className="btn btn-warning" onClick={handleRevealAnswer}>Click here to reveal...</button>
-            </>;
+            return <Button type={ButtonTypes.WARNING} clickEvent={handleRevealAnswer} buttonText="Click here to reveal..." label="What's the count?"></Button>
         case CardCountingStates.REVEAL_ANSWER:
-            return <>
-                <b className="d-block">The answer goes here!</b>
-                <button className="btn btn-primary" onClick={handleStartOver}>Start Over!</button>
-            </>;
+            return <Button type={ButtonTypes.PRIMARY} clickEvent={handleStartOver} buttonText="Start Over!" label="The answer goes here!"></Button>
         case CardCountingStates.IN_PROGRESS:
-            return <button className="btn btn-secondary" onClick={getOneMore}>Draw one more card...</button>;
+            return <Button type={ButtonTypes.SECONDARY} clickEvent={getOneMore} buttonText="Draw one more card..."></Button>
         default:
-            return <button className="btn btn-primary" onClick={startGame}>Start Counting!</button>;
+            return <Button type={ButtonTypes.PRIMARY} clickEvent={startGame} buttonText="Start Counting!"></Button>
     }
 }
 

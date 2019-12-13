@@ -40,7 +40,9 @@ export default () => {
 
     return <Page title="Card Counting">
         <Instructions>High cards are worth -1, low cards +1, and [7, 8, 9] are worth 0</Instructions>
-        <p className="text-center"><CardCountingWorkflow gameState={gameState} startGame={startGame} getOneMore={getOneMore} handleRevealAnswer={handleRevealAnswer} handleStartOver={handleStartOver}></CardCountingWorkflow></p>
-        <p className="text-center">{visibleCard && gameState == CardCountingStates.IN_PROGRESS ? <Card card={visibleCard} /> : null}</p>
+        <div className="d-flex flex-column text-center">
+            <div>{visibleCard && gameState == CardCountingStates.IN_PROGRESS ? <Card card={visibleCard} /> : null}</div>
+            <div><CardCountingWorkflow gameState={gameState} startGame={startGame} getOneMore={getOneMore} handleRevealAnswer={handleRevealAnswer} handleStartOver={handleStartOver}></CardCountingWorkflow></div>
+        </div>
     </Page>
 }
