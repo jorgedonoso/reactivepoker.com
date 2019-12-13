@@ -35,6 +35,9 @@ export default ({ children, title }) => (
             .bg-dark{
                 background-color: #000!important;
             }
+            .container{
+                max-width: 992px;
+            }
             `}
         </style>
     </>
