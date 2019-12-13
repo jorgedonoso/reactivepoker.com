@@ -6,10 +6,6 @@ import useDeck from "../src/hooks/useDeck"
 import useSolver from "../src/hooks/useSolver"
 import { getPokerRules } from "../src/helpers"
 import Instructions from "../components/Instructions"
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
-
-toast.configure({ autoClose: 2000 });
 
 export default () => {
 
@@ -24,11 +20,9 @@ export default () => {
   const onAnswer = (ruleName) => {
     // Compare user selection with actual result.
     if (ruleName == result) {
-      toast.success("Correct!");
+      alert("Correct. Start new game.");
       getNewHand();
       setRules(getPokerRules());
-    } else {
-      toast.error("Wrong!");
     }
   }
 
@@ -39,7 +33,6 @@ export default () => {
   }
 
   return <Page title="Poker Rules">
-    <ToastContainer></ToastContainer>
     <Instructions>Select the rule that describes the hand</Instructions>
     <Deck hand={hand}></Deck>
     <Rules onAnswer={onAnswer} initRules={rules}></Rules>
