@@ -1,8 +1,9 @@
 const Card = ({ clickEvent, extraClasses, card }) => {
-    return <img
-        className={"img-fluid animated fadeIn " + extraClasses}
+    return card.imageName ? <img className={"img-fluid animated fadeIn " + extraClasses}
         src={"/images/" + card.imageName + ".png"}
         onClick={() => clickEvent && clickEvent(card)} />
+        :
+        null
 }
 
 export default Card

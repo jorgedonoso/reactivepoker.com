@@ -9,7 +9,7 @@ import { calculateCardValue } from "../src/helpers"
 
 export default () => {
 
-    let { hand, getNewHand } = useDeck(5);
+    let { hand, getNewHand, backOfCard } = useDeck(5);
     let [visibleCard, setVisibleCard] = useState(null);
     let [count, setCount] = useState(-1);
     let [answer, setAnswer] = useState(0);
@@ -47,7 +47,7 @@ export default () => {
     return <Page title="Card Counting">
         <Instructions>High cards are worth -1, low cards +1, and [7, 8, 9] are worth 0</Instructions>
         <div className="d-flex flex-column text-center">
-            <div>{visibleCard && gameState == CardCountingStates.IN_PROGRESS ? <Card card={visibleCard} /> : null}</div>
+            <div>{visibleCard && gameState == CardCountingStates.IN_PROGRESS ? <Card card={visibleCard} /> : <Card card={backOfCard} />}</div>
             <div><CardCountingWorkflow gameState={gameState} answer={answer} startGame={startGame} getOneMore={getOneMore} handleRevealAnswer={handleRevealAnswer} handleStartOver={handleStartOver}></CardCountingWorkflow></div>
         </div>
     </Page>
