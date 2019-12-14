@@ -5,6 +5,8 @@ import useDeck from "../src/hooks/useDeck"
 import useSelectCard from "../src/hooks/useSelectCard"
 import useSolver from "../src/hooks/useSolver"
 import Instructions from "../components/Instructions"
+import Button from "../components/Button"
+import ButtonTypes from "../src/enums/ButtonTypes.ts"
 
 export default () => {
 
@@ -51,11 +53,12 @@ export default () => {
       <div className="col">
         <Instructions>Select some cards to keep and draw the remaining ones</Instructions>
         <Deck hand={playableHand} clickEvent={clickEventDecider()} selectedCards={selectedCards}></Deck>
-        <p className="text-center">
-          {result ? null : <button className="btn btn-primary" onClick={handleDraw}>Draw</button>}
-          {result ? <button className="btn btn-primary" onClick={startNewGame}>Start New Game</button> : null}
-        </p>
-        <p className="text-center">{result}</p>
+        <div className="text-center">
+          {result
+            ? <Button clickEvent={startNewGame} buttonText="Start New Game!" label={result} type={ButtonTypes.PRIMARY}></Button>
+            : <Button clickEvent={handleDraw} buttonText="Draw" type={ButtonTypes.PRIMARY}></Button>
+          }
+        </div>
       </div>
     </div>
   </Page>
