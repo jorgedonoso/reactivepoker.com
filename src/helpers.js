@@ -9,4 +9,19 @@ const getPokerRules = () => [{ id: 'rule_1', name: 'High Card', error: false }
     , { id: 'rule_9', name: 'Straight Flush', error: false }
     , { id: 'rule_10', name: 'Royal Flush', error: false }];
 
-export { getPokerRules }
+const calculateCardValue = (card) => {
+
+    let result = 0;
+    const { value } = card;
+    const minusOnes = ['T', 'J', 'Q', 'K', 'A'];
+
+    if (minusOnes.indexOf(value) > -1) {
+        result = -1;
+    } else if (value > 1 && value < 7) {
+        result = 1;
+    }
+
+    return result;
+}
+
+export { getPokerRules, calculateCardValue }
