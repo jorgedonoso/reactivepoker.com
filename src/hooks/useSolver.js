@@ -13,15 +13,14 @@ export default (mode) => {
         let results;
 
         if (mode) {
-            out = "Nothing!";
+            out = "Sorry, you have nothing!";
             results = handSolver.solve(flatHand, mode);
+
             let exclusions = ["Pair, 2's", "Pair, 3's", "Pair, 4's", "Pair, 5's", "Pair, 6's", "Pair, 7's", "Pair, 8's", "Pair, 9's", "Pair, 10's"];
 
             if (results.rank > 1 && exclusions.indexOf(results.descr) === -1) {
-                out = results.descr + "!";
+                out = "Congrats! " + results.descr + "!";
             }
-
-            out += " Play again?";
 
         } else {
             results = handSolver.solve(flatHand, mode);
