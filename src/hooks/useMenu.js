@@ -9,7 +9,7 @@ export default () => {
             { label: "Poker Rules", path: "/poker-rules", icon: "book" },
             { label: "Jacks or Better", path: "/jacks-or-better", icon: "map-signs" },
             { label: "Card Counting", path: "/card-counting", icon: "balance-scale-right" },
-            { label: "Terms of Service", path: "/terms-of-service", excludeFromMobile: true }
+            { label: "Terms of Service", path: "/terms-of-service", icon: "exclamation-triangle", excludeFromMobile: true }
         ])
     }, []);
 

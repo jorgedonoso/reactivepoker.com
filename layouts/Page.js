@@ -7,10 +7,10 @@ import "animate.css/animate.min.css"
 import "../src/styles/styles.css"
 import Title from "../components/Title"
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBook, faMapSigns, faBalanceScaleRight } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faMapSigns, faBalanceScaleRight, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
 // Configure FontAwesome library.
-library.add(faBook, faMapSigns, faBalanceScaleRight)
+library.add(faBook, faMapSigns, faBalanceScaleRight, faExclamationTriangle)
 
 export default ({ children, title }) => (
     <>
