@@ -4,6 +4,7 @@ import Footer from "./shared/Footer"
 import Head from 'next/head'
 import "bootstrap-css-only/css/bootstrap.min.css"
 import "animate.css/animate.min.css"
+import "../src/styles/styles.css"
 import Title from "../components/Title"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBook, faMapSigns, faBalanceScaleRight } from '@fortawesome/free-solid-svg-icons'
@@ -25,20 +26,5 @@ export default ({ children, title }) => (
             <Footer></Footer>
         </div>
         <MobileNavigation></MobileNavigation>
-        <style jsx global>{`
-            body{ 
-                background-color: #fff!important;
-                background-image: -webkit-linear-gradient(30deg,#fff 30%,#ccc 70%);
-                background-height: 100vh;
-                background-attachment:fixed;
-            }
-            .bg-dark{
-                background-color: #000!important;
-            }
-            .container{
-                max-width: 992px;
-            }
-            `}
-        </style>
     </>
 )
