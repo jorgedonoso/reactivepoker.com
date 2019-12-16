@@ -1,8 +1,8 @@
 // excluding 0 so the first card has no delay.
 @for $i from 1 through 4 {
     .delay-#{$i} {
-        -webkit-animation-delay: $i * 200ms !important;
-        animation-delay: $i * 200ms !important;
+        -webkit-animation-delay: $i * 100ms !important;
+        animation-delay: $i * 100ms !important;
     }
 }
 
