@@ -10,7 +10,7 @@ import ButtonTypes from "../src/enums/ButtonTypes.ts"
 
 export default () => {
 
-  let { hand, getNewHand } = useDeck(10);
+  let { hand, getNewHand, deckId } = useDeck(10);
   let { result, solveHand, clearResult } = useSolver("jacksbetter");
   let { selectedCards, selectCard, clearSelectedCards } = useSelectCard();
   let [playableHand, setPlayableHand] = useState([]);
@@ -52,7 +52,7 @@ export default () => {
     <div className="row">
       <div className="col">
         <Instructions>Select some cards to keep and draw the remaining ones</Instructions>
-        <Deck hand={playableHand} clickEvent={clickEventDecider()} selectedCards={selectedCards}></Deck>
+        <Deck hand={playableHand} clickEvent={clickEventDecider()} selectedCards={selectedCards} deckId={deckId}></Deck>
         <div className="text-center">
           {result
             ? <Button clickEvent={startNewGame} buttonText="Start New Game!" label={result} type={ButtonTypes.PRIMARY}></Button>

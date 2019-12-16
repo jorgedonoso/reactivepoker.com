@@ -1,6 +1,6 @@
 import Card from "./Card"
 
-const Deck = ({ hand, clickEvent, selectedCards }) => {
+const Deck = ({ hand, clickEvent, selectedCards, deckId }) => {
 
     return <div className="row my-sm-0 my-md-4 no-gutters">
         {
@@ -15,7 +15,7 @@ const Deck = ({ hand, clickEvent, selectedCards }) => {
                 }
 
                 return <div className="col text-center" key={card.key}>
-                    <Card card={card} extraClasses={extraClasses} clickEvent={clickEvent} index={index} />
+                    <Card card={card} extraClasses={extraClasses} clickEvent={clickEvent} index={index} deckId={deckId} />
                     <p className={holdMessage}>Hold</p>
                 </div>
             })

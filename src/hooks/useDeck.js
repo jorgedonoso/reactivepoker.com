@@ -5,9 +5,11 @@ export default (numberOfCards) => {
 
     const deck = new DeckModel();
     const [hand, setDeck] = useState([]);
+    const [deckId, setDeckId] = useState();
     const [backOfCard, setBackOfCard] = useState([]);
 
     useEffect(() => {
+        setDeckId(Date.now());
         getNewHand();
         getBackOfCard();
     }, []);
@@ -15,6 +17,7 @@ export default (numberOfCards) => {
     const getNewHand = () => {
         var newHand = deck.getNewHand(numberOfCards);
         setDeck(newHand);
+        setDeckId(Date.now());
     }
 
     const getBackOfCard = () => {
@@ -22,5 +25,5 @@ export default (numberOfCards) => {
         setBackOfCard(backOfCard);
     }
 
-    return { hand, getNewHand, backOfCard };
+    return { hand, getNewHand, backOfCard, deckId };
 }
