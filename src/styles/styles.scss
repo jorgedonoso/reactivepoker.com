@@ -1,3 +1,11 @@
+// excluding 0 so the first card has no delay.
+@for $i from 1 through 4 {
+    .delay-#{$i} {
+        -webkit-animation-delay: $i * 200ms !important;
+        animation-delay: $i * 200ms !important;
+    }
+}
+
 body {
     background-color: #fff !important;
     background-image: -webkit-linear-gradient(30deg, #fff 30%, #ccc 70%);
