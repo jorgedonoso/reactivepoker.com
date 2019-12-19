@@ -38,39 +38,33 @@ export default () => {
 
     const getOneMore = () => setCount(cur => cur + 1);
 
+    const createWorkflowButton = (type, clickEvent, text, label) => {
+        setType(type);
+        setClickEvent(() => clickEvent);
+        setButtonText(text);
+        setLabel(label);
+    }
+
     // Hoist.
     function startGame() {
         setGameState(CardCountingStates.IN_PROGRESS);
         getOneMore();
-
-        // Workflow.
-        setType(ButtonTypes.SECONDARY);
-        setClickEvent(() => getOneMore);
-        setButtonText("Draw one more card...");
-        setLabel(null);
+        createWorkflowButton(ButtonTypes.SECONDARY, getOneMore, "Draw one more card...");
     }
 
     const handleStartOver = () => {
         setGameState(CardCountingStates.IN_PROGRESS);
         setAnswer(0);
         setCount(0);
-
-        // Workflow.
-        setType(ButtonTypes.SECONDARY);
-        setClickEvent(() => getOneMore);
-        setButtonText("Draw one more card...");
-        setLabel(null);
+        createWorkflowButton(ButtonTypes.SECONDARY, getOneMore, "Draw one more card...");
     }
 
     const handleRevealAnswer = () => {
         setGameState(CardCountingStates.REVEAL_ANSWER);
-
-        // Workflow.
-        setType(ButtonTypes.PRIMARY);
-        setClickEvent(() => handleStartOver);
-        setButtonText("Play again!");
-        setLabel("The answer is " + answer + "!");
+        createWorkflowButton(ButtonTypes.PRIMARY, handleStartOver, "Play again!", "The answer is " + answer + "!");
     }
+
+
 
     return { visibleCard, gameState, type, clickEvent, buttonText, label };
 }
