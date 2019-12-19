@@ -27,18 +27,14 @@ export default () => {
         } else {
             getNewHand();
             setGameState(CardCountingStates.ASK_COUNT);
-
-            // Workflow.
-            setType(ButtonTypes.WARNING);
-            setClickEvent(() => handleRevealAnswer);
-            setButtonText("Click here to reveal...");
-            setLabel("What's the count?");
+            createWorkflowButton(ButtonTypes.WARNING, handleRevealAnswer, "Click here to reveal...", "What's the count?");
         }
     }, [count]);
 
     const getOneMore = () => setCount(cur => cur + 1);
 
-    const createWorkflowButton = (type, clickEvent, text, label) => {
+    // Hoist.
+    function createWorkflowButton(type, clickEvent, text, label) {
         setType(type);
         setClickEvent(() => clickEvent);
         setButtonText(text);
@@ -53,18 +49,15 @@ export default () => {
     }
 
     const handleStartOver = () => {
-        setGameState(CardCountingStates.IN_PROGRESS);
         setAnswer(0);
-        setCount(0);
-        createWorkflowButton(ButtonTypes.SECONDARY, getOneMore, "Draw one more card...");
+        setCount(-1);
+        startGame();
     }
 
     const handleRevealAnswer = () => {
         setGameState(CardCountingStates.REVEAL_ANSWER);
         createWorkflowButton(ButtonTypes.PRIMARY, handleStartOver, "Play again!", "The answer is " + answer + "!");
     }
-
-
 
     return { visibleCard, gameState, type, clickEvent, buttonText, label };
 }
