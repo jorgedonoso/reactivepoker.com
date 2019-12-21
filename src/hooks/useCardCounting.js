@@ -4,6 +4,7 @@ import ButtonTypes from "../enums/ButtonTypes.ts"
 import useDeck from "../hooks/useDeck"
 import { calculateCardValue } from "../helpers"
 import useWorkflowButton from './useWorkflowButton'
+import { ButtonVerbiages, GenerateAnswerVerbiage } from "../enums/ButtonVerbiages.ts"
 
 export default () => {
 
@@ -12,7 +13,7 @@ export default () => {
     let { hand, getNewHand } = useDeck(5);
     let [visibleCard, setVisibleCard] = useState(null);
     let [answer, setAnswer] = useState(0);
-    let { type, clickEvent, buttonText, label, createWorkflowButton } = useWorkflowButton(ButtonTypes.PRIMARY, startGame, "Start counting!");
+    let { type, clickEvent, buttonText, label, createWorkflowButton } = useWorkflowButton(ButtonTypes.PRIMARY, startGame, ButtonVerbiages.START);
 
     useEffect(() => {
         // If game could be active.
@@ -24,7 +25,7 @@ export default () => {
         } else { // Dealing has ended.
             getNewHand();
             setGameState(CardCountingStates.ASK_COUNT);
-            createWorkflowButton(ButtonTypes.WARNING, handleRevealAnswer, "Click here to reveal...", "What's the count?");
+            createWorkflowButton(ButtonTypes.WARNING, handleRevealAnswer, ButtonVerbiages.CLICK_TO_REVEAL_ANSWER, ButtonVerbiages.ASK_COUNT);
         }
     }, [cardIndex]);
 
@@ -34,7 +35,7 @@ export default () => {
     function startGame() {
         setGameState(CardCountingStates.IN_PROGRESS);
         getOneMore();
-        createWorkflowButton(ButtonTypes.SECONDARY, getOneMore, "Draw one more card...");
+        createWorkflowButton(ButtonTypes.SECONDARY, getOneMore, ButtonVerbiages.DRAW_ONE_MORE);
     }
 
     const handleStartOver = () => {
@@ -45,7 +46,7 @@ export default () => {
 
     const handleRevealAnswer = () => {
         setGameState(CardCountingStates.REVEAL_ANSWER);
-        createWorkflowButton(ButtonTypes.PRIMARY, handleStartOver, "Play again!", "The answer is " + answer + "!");
+        createWorkflowButton(ButtonTypes.PRIMARY, handleStartOver, ButtonVerbiages.PLAY_AGAIN, GenerateAnswerVerbiage(answer));
     }
 
     return { visibleCard, gameState, type, clickEvent, buttonText, label };
