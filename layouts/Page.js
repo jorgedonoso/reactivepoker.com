@@ -8,9 +8,10 @@ import "../src/styles/styles.scss"
 import Title from "../components/Title"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBook, faMapSigns, faBalanceScaleRight, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
 // Configure FontAwesome library.
-library.add(faBook, faMapSigns, faBalanceScaleRight, faExclamationTriangle)
+library.add(faBook, faMapSigns, faBalanceScaleRight, faExclamationTriangle, faGithub)
 
 export default ({ children, title }) => (
     <>

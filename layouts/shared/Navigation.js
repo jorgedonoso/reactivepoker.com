@@ -10,7 +10,7 @@ const Navigation = ({ router }) => {
     return <div className="d-none d-md-block">
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
             <Link href="/"><a className="navbar-brand">Reactive Poker</a></Link>
-            <div className="navbar-nav">
+            <div className="navbar-nav mr-auto">
                 {menuData.map(
                     (link, $key) => {
                         let isActive;
@@ -26,6 +26,9 @@ const Navigation = ({ router }) => {
                     }
                 )}
             </div>
+            <a className="btn btn-success float-right text-white align-text-bottom" href="https://github.com/jorgedonoso/reactivepoker.com" target="_blank">
+                <FontAwesomeIcon icon={{ prefix: "fab", iconName: "github" }} height={18} className="mr-2" /> GitHub Source Code
+            </a>
         </nav>
     </div>
 }
