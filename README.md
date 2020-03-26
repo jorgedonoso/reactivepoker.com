@@ -8,6 +8,18 @@ A collection of card game resources for beginners
 * Jacks or Better
 * Card Counting
 
+## Animation
+To create the staggered effect, I used SCSS to generate a set of classes to delay individual cards at different speeds.
+
+```scss
+@for $i from 1 through 4 {
+    .delay-#{$i} {
+        -webkit-animation-delay: $i * 100ms !important;
+        animation-delay: $i * 100ms !important;
+    }
+}
+```
+
 ## Built With
 
 * [React](https://reactjs.org/) - A JavaScript library for building user interfaces
