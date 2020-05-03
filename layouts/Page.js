@@ -5,7 +5,7 @@ import Head from 'next/head'
 import "bootstrap-css-only/css/bootstrap.min.css"
 import "animate.css/animate.min.css"
 import "../src/styles/styles.scss"
-import Title from "../components/Title"
+import Title from "../src/components/Title"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBook, faMapSigns, faBalanceScaleRight, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from "@fortawesome/free-brands-svg-icons"

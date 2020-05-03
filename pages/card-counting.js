@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Page from "../layouts/Page"
-import Card from "../components/Card"
+import Card from "../src/components/Card"
 import CardCountingStates from "../src/enums/CardCountingStates.ts"
-import Instructions from "../components/Instructions"
+import Instructions from "../src/components/Instructions"
 import useCardCounting from '../src/hooks/useCardCounting'
-import Button from "../components/Button"
+import Button from "../src/components/Button"
 
 export default () => {
 
