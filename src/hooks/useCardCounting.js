@@ -35,7 +35,7 @@ export default () => {
     function startGame() {
         setGameState(CardCountingStates.IN_PROGRESS);
         getOneMore();
-        createWorkflowButton(ButtonTypes.SECONDARY, getOneMore, ButtonVerbiages.DRAW_ONE_MORE);
+        createWorkflowButton(ButtonTypes.SECONDARY, getOneMore, ButtonVerbiages.NEXT);
     }
 
     const handleStartOver = () => {
