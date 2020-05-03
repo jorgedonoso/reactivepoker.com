@@ -6,24 +6,30 @@ import useDeck from "../src/hooks/useDeck"
 import useSolver from "../src/hooks/useSolver"
 import { getPokerRules } from "../src/helpers"
 import Instructions from "../components/Instructions"
+import { useToasts } from 'react-toast-notifications';
 
 export default () => {
 
   let { hand, getNewHand, deckId } = useDeck(5);
   let { result, solveHand } = useSolver();
   let [rules, setRules] = useState(getPokerRules());
+  const { addToast } = useToasts();
 
   useEffect(function () {
     startGame();
   }, [hand]);
 
   const onAnswer = (ruleName) => {
+
     // Compare user selection with actual result.
     if (ruleName == result) {
-      alert("Correct. Start new game.");
+      addToast("Correct. Start new game.", { appearance: 'success', autoDismiss: true, });
       getNewHand();
       setRules(getPokerRules());
+    } else {
+      addToast("Sorry, try again!", { appearance: 'error', autoDismiss: true, });
     }
+
   }
 
   const startGame = () => {
