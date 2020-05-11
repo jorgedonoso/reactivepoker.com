@@ -1,8 +1,8 @@
 import React from 'react'
 import Page from "../layouts/Page"
 import heroImage from "../src/images/hero.png"
-import Link from "next/link"
 import useMenu from "../src/hooks/useMenu"
+import CTA from "../src/components/CTA";
 
 export default () => {
 
@@ -21,11 +21,7 @@ export default () => {
       {
         menuData.map((cta, $key) => {
           if (!cta.excludeFromMobile) {
-            return <div className="col-md mb-2" key={$key}>
-              <Link prefetch={false} href={cta.path}>
-                <a className="btn btn-danger shadow py-3 btn-block text-uppercase">{cta.ctaLabel}</a>
-              </Link>
-            </div>
+            return <CTA key={$key} label={cta.ctaLabel} href={cta.path} />
           }
         })
       }
