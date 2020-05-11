@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Page from "../layouts/Page"
-import Deck from "../src/components/Deck"
-import Rules from "../src/components/PokerRulesPanel"
+import Deck from "../src/components/cards/Deck"
+import Rules from "../src/components/UI/PokerRulesPanel"
 import useDeck from "../src/hooks/useDeck"
 import useSolver from "../src/hooks/useSolver"
 import { getPokerRules } from "../src/helpers"
-import Instructions from "../src/components/Instructions"
+import Instructions from "../src/components/UI/Instructions"
 import { useToasts } from 'react-toast-notifications';
 
 export default () => {

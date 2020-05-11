@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Page from "../layouts/Page"
-import Deck from "../src/components/Deck"
+import Deck from "../src/components/cards/Deck"
 import useDeck from "../src/hooks/useDeck"
 import useSelectCard from "../src/hooks/useSelectCard"
 import useSolver from "../src/hooks/useSolver"
-import Instructions from "../src/components/Instructions"
-import Button from "../src/components/Button"
+import Instructions from "../src/components/UI/Instructions"
+import Button from "../src/components/UI/Button"
 import ButtonTypes from "../src/enums/ButtonTypes.ts"
 
 export default () => {

@@ -1,4 +1,4 @@
-import cardImages from "../cardImages"
+import cardImages from "../../cardImages"
 
 const Card = ({ clickEvent, extraClasses, card, index, deckId }) => {
 

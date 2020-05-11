@@ -2,7 +2,7 @@ import React from 'react'
 import Page from "../layouts/Page"
 import heroImage from "../src/images/hero.png"
 import useMenu from "../src/hooks/useMenu"
-import CTA from "../src/components/CTA";
+import CTA from "../src/components/UI/CTA";
 
 export default () => {
 

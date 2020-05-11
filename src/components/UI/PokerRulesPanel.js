@@ -16,7 +16,7 @@ const PokerRulesPanel = ({ onAnswer, initRules }) => {
     return <div className="row">{
         rules.map((rule) => {
 
-            let disabled = rule.error ? "btn-secondary" : "btn-dark";
+            let disabled = rule.error ? "btn-danger" : "btn-dark";
 
             return <div className="col-6 pb-3" key={rule.id}>
                 <button
