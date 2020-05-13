@@ -1,3 +1,23 @@
 .react-toast-notifications__toast__content {
     padding: 12px !important;
 }
+
+@font-face {
+    font-family: "roboto";
+    src: url("/fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: "mont";
+    src: url("/fonts/Montserrat-Light.ttf");
+}
+
+body {
+    font-family: "mont" !important;
+    color: red;
+}
+
+h1,
+h2 {
+    font-family: "roboto";
+}
