@@ -10,11 +10,9 @@ export default () => {
 
   return <Page title="Reactive Poker">
     <div className="row">
-      <div className="col">
-        <p className="text-center lead">
-          A collection of card game resources for beginners
-          <img src={heroImage} className="img-fluid" />
-        </p>
+      <div className="col text-center">
+        <p className="lead">A collection of card game resources for beginners</p>
+        <p><img src={heroImage} className="img-fluid" style={{ maxHeight: "45vh" }} /></p>
       </div>
     </div>
     <div className="row">

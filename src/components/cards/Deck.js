@@ -2,7 +2,7 @@ import Card from "./Card"
 
 const Deck = ({ hand, clickEvent, selectedCards, deckId }) => {
 
-    return <div className="row my-sm-0 my-md-4 no-gutters">
+    return <div className="row no-gutters">
         {
             hand.map((card, index) => {
 
