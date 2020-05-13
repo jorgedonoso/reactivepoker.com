@@ -11,7 +11,7 @@ import { useToasts } from 'react-toast-notifications';
 export default () => {
 
   let { hand, getNewHand, deckId } = useDeck(5);
-  let { result, solveHand } = useSolver();
+  let { result, solveHand, detailedResults } = useSolver();
   let [rules, setRules] = useState(getPokerRules());
   const { addToast } = useToasts();
 
@@ -23,7 +23,7 @@ export default () => {
 
     // Compare user selection with actual result.
     if (ruleName == result) {
-      addToast("Correct. Start new game.", { appearance: 'success', autoDismiss: true, });
+      addToast(detailedResults + " is correct!", { appearance: 'success', autoDismiss: true, });
       getNewHand();
       setRules(getPokerRules());
     } else {
